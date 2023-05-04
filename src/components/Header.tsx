@@ -1,14 +1,20 @@
 import Link from 'next/link';
 
-function Header() {
+type headerProps = {
+  onLogin: () => void;
+};
+
+function Header(props: headerProps) {
   return (
-    <div className=" text-amber-900 pt-4 pb-8">
+    <div className=" text-amber-900 pt-4 pb-8 min-w-full">
       <div className="flex justify-between">
         <div className="w-32 text-center">
           <p>Search</p>
         </div>
         <div className="flex w-64 justify-around">
-          <p className="text-center">Login</p>
+          <button onClick={props.onLogin} className="text-center">
+            Login
+          </button>
           <p className="text-center">Cart</p>
         </div>
       </div>

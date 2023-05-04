@@ -11,9 +11,6 @@ module.exports = {
         primary: '#f5f3e8',
       },
     },
-    screens: {
-      xs: '480px',
-    },
   },
 
   plugins: [],

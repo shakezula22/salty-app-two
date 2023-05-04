@@ -1,6 +1,4 @@
 import './globals.css';
-import Header from '@/components/Header';
-import Modal from '@/components/UI/Modal';
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,10 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-w-[350px] overflow-scroll">
-        <Header />
-        {children}
-      </body>
+      <body className="min-w-full p-0 m-0">{children}</body>
     </html>
   );
 }

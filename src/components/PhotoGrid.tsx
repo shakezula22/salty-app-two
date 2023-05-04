@@ -40,7 +40,7 @@ function PhotoGrid() {
             className="object-cover h-full w-full hover:opacity-60 peer/access overflow-hidden"
             src="https://cdn.shopify.com/s/files/1/0002/6420/8396/products/Feather_1024x1024@2x.jpg?v=1621871705"
           />
-          <h2 className="absolute bottom-5 left-1 text-xl md:text-5xl text-white font-bold peer-hover/access:text-amber-900">
+          <h2 className="absolute bottom-5 left-1 text-l md:text-5xl text-white font-bold peer-hover/access:text-amber-900 max-w-[86px]">
             Accessories
           </h2>
         </div>
