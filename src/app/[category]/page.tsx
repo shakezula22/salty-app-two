@@ -1,6 +1,12 @@
-import { NavBar } from '@/components/NavBar';
 import Link from 'next/link';
+import { NavBar } from '@/components/NavBar';
 import env from '../api/env/env';
+
+type Props = {
+  params: {
+    category: string;
+  };
+};
 
 type Product = {
   id: number;
@@ -11,9 +17,9 @@ type Product = {
   thumbnail: { url: string };
 };
 
-const getItems = async (): Promise<Product[]> => {
+const getItems = async (category: string): Promise<Product[]> => {
   const res = await fetch(
-    'https://salty-app.jgude.dev/products?page=1&resultsPerPage=1000&search=armani',
+    `https://salty-app.jgude.dev/products?page=1&resultsPerPage=1000&filter=${category}`,
     {
       method: 'GET',
       headers: {
@@ -28,14 +34,16 @@ const getItems = async (): Promise<Product[]> => {
   return data.data;
 };
 
-async function ProductsPage() {
-  const items = await getItems();
+async function ProductCategoryPage({ params }: Props) {
+  const items = await getItems(params.category);
+  const cat = params.category;
+  const catTitle = cat.charAt(0).toUpperCase() + cat.slice(1);
 
   return (
     <>
       <NavBar />
       <div className="ml-32 2xl:ml-40 my-6">
-        <h1 className="font-bold text-2xl">Shop All</h1>
+        <h1 className="font-bold text-2xl">Shop {catTitle}</h1>
       </div>
       <div className="flex justify-center">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-10 w-4/5">
@@ -46,8 +54,9 @@ async function ProductsPage() {
             >
               <img
                 className="w-[186px] md:w-[232px] h-[286px] md:h-[357px] object-cover "
-                src={item.thumbnail.url}
+                src="https://cdn.shopify.com/s/files/1/0002/6420/8396/files/IMG_2842_1024x1024@2x.heic?v=1683750297"
               />
+
               <p className="mt-2 font-bold ">{item.name}</p>
               <p className="my-2">${(item.price / 100).toFixed(2)}</p>
             </Link>
@@ -58,4 +67,4 @@ async function ProductsPage() {
   );
 }
 
-export default ProductsPage;
+export default ProductCategoryPage;

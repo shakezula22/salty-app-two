@@ -15,7 +15,7 @@ function ModalBackdrop(props: modalProps) {
 
 function ModalWindow(props: PropsWithChildren<modalProps>) {
   return (
-    <div className="absolute left-0 top-0 w-screen md:left-40 md:top-40 min-h-[475px] md:max-h-[90vh] md:max-w-[475] md:w-[60%] bg-white z-50 shadow-md">
+    <div className="absolute left-0 top-0 p-2 w-screen md:left-40 md:top-40 min-h-[475px] md:max-h-[90vh] md:max-w-[475] md:w-[60%] bg-white z-50 shadow-md">
       {props.children}
     </div>
   );

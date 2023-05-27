@@ -1,4 +1,6 @@
+import { NavBar } from '@/components/NavBar';
 import './globals.css';
+import { CartProvider } from './store/cart-context';
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-w-full p-0 m-0">{children}</body>
+      <body className="min-w-full p-0 m-0">
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
   );
 }
