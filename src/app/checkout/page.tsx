@@ -1,13 +1,16 @@
-import Stripe from 'stripe';
+import Button from '@/components/UI/Button';
+import { loadStripe } from '@stripe/stripe-js';
+import env from '../api/env/env';
 
-const stripe = new Stripe(process.env.STRIPE_SK!, { apiVersion: '2022-11-15' });
+// const stripePromise = loadStripe(env.NEXT_PUBLIC_STRIPE_PK);
 
-async function createSetupIntent() {
-  const setupIntent = await stripe.setupIntents.create({
-    payment_method_types: ['card'],
-  });
-}
-
-export default async function CheckoutPage() {
-  return <h1>Pay for Your Shit</h1>;
+export default function CheckoutPreviewPage() {
+  return (
+    <div>
+      <h1>Checkout</h1>
+      <form action="/api/create-checkout-session" method="POST">
+        <Button type="submit">Pay</Button>
+      </form>
+    </div>
+  );
 }
