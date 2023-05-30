@@ -43,6 +43,7 @@ async function ProductsPage() {
             <Link
               href={`/products/${item.id}`}
               className=" flex flex-col justify-start"
+              key={item.id}
             >
               <img
                 className="w-[186px] md:w-[232px] h-[286px] md:h-[357px] object-cover "

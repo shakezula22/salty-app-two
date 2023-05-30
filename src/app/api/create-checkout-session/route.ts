@@ -18,6 +18,6 @@ export default async function POST(request: Request) {
         },
       ],
     });
-    NextResponse.redirect(session.url);
+    // NextResponse.redirect(session.url);
   }
 }
