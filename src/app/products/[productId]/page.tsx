@@ -62,7 +62,7 @@ async function ProductDetailPage({ params }: Props) {
             email. Shipping (International) - Please allow between 6-10 business
             days once you receive the shipping confirmation email. Shipping fee
             does not include customs or duties fees. Customer is responsible for
-            their country's duties and fees.
+            their country&apos;s duties and fees.
           </p>
         </div>
       </div>
