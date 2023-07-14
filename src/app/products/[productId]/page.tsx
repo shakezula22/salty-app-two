@@ -1,6 +1,8 @@
 import env from '@/app/api/env/env';
 import AddToCartForm from './AddToCartForm';
 
+//https://cdn.contentful.com
+
 type Props = {
   params: {
     productId: string;

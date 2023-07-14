@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 const stripe = new Stripe(env.STRIPE_SK, { apiVersion: '2022-11-15' });
 
-export default async function POST(request: Request) {
+export async function POST(request: Request) {
   if (request.method === 'POST') {
     const session = await stripe.checkout.sessions.create({
       success_url: `${env.BASE_URL}/success`,
