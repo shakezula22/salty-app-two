@@ -11,7 +11,7 @@ type CartItem = {
   name: string;
   description: string;
   price: number;
-  thumbnail: { url: string };
+  image: string;
   quantity: number;
   size: string;
 };

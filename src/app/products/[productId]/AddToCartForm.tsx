@@ -10,7 +10,7 @@ type CartProps = {
   name: string;
   description: string;
   price: number;
-  thumbnail: { url: string };
+  image: string;
 };
 
 export default function AddToCartForm(props: CartProps) {

@@ -1,6 +1,7 @@
 import { NavBar } from '@/components/NavBar';
 import Link from 'next/link';
 import env from '../api/env/env';
+import { DUMMY_ITEMS } from '@/data/dummyItems';
 
 type Product = {
   id: number;
@@ -11,25 +12,26 @@ type Product = {
   thumbnail: { url: string };
 };
 
-const getItems = async (): Promise<Product[]> => {
-  const res = await fetch(
-    'https://salty-app.jgude.dev/products?page=1&resultsPerPage=1000&search=armani',
-    {
-      method: 'GET',
-      headers: {
-        'x-api-key': env.API_KEY,
-      },
-    }
-  );
-  if (!res.ok) {
-    throw new Error('Failed to fetch data.');
-  }
-  const data = await res.json();
-  return data.data;
-};
+// const getItems = async (): Promise<Product[]> => {
+//   const res = await fetch(
+//     'https://salty-app.jgude.dev/products?page=1&resultsPerPage=1000&search=armani',
+//     {
+//       method: 'GET',
+//       headers: {
+//         'x-api-key': env.API_KEY,
+//       },
+//     }
+//   );
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data.');
+//   }
+//   const data = await res.json();
+//   return data.data;
+// };
 
 async function ProductsPage() {
-  const items = await getItems();
+  // const items = await getItems();
+  const items = DUMMY_ITEMS;
 
   return (
     <>
@@ -47,7 +49,7 @@ async function ProductsPage() {
             >
               <img
                 className="w-[186px] md:w-[232px] h-[286px] md:h-[357px] object-cover "
-                src={item.thumbnail.url}
+                src={item.image}
               />
               <p className="mt-2 font-bold ">{item.name}</p>
               <p className="my-2">${(item.price / 100).toFixed(2)}</p>

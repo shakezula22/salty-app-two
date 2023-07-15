@@ -22,7 +22,7 @@ function PhotoGrid() {
           <Link href="/tops">
             <img
               className="object-cover h-full hover:opacity-60 peer/tops overflow-hidden"
-              src="https://cdn.shopify.com/s/files/1/0002/6420/8396/products/image_883812f5-bd91-4df7-b7b0-e5fcffb3bc6f_1024x1024@2x.jpg?v=1680863975"
+              src="https://www.naturallife.com/cdn/shop/files/484A1563_20copy_1296x.webp?v=1683554068"
             />
             <h2 className="absolute bottom-5 left-1 text-5xl text-white font-bold peer-hover/tops:text-amber-900">
               Tops

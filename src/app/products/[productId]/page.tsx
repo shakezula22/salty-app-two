@@ -1,5 +1,6 @@
 import env from '@/app/api/env/env';
 import AddToCartForm from './AddToCartForm';
+import { DUMMY_ITEMS } from '@/data/dummyItems';
 
 //https://cdn.contentful.com
 
@@ -13,27 +14,31 @@ type Product = {
   id: number;
   name: string;
   description: string;
-  thumbnail: { url: string };
+  image: string;
   price: number;
 };
 
-const fetchData = async (id: number): Promise<Product> => {
-  const res = await fetch(`https://salty-app.jgude.dev/products/${id}`, {
-    method: 'GET',
-    headers: {
-      'x-api-key': env.API_KEY,
-    },
-  });
-  const data = await res.json();
-  return data;
-};
+// const fetchData = async (id: number): Promise<Product> => {
+//   const res = await fetch(`https://salty-app.jgude.dev/products/${id}`, {
+//     method: 'GET',
+//     headers: {
+//       'x-api-key': env.API_KEY,
+//     },
+//   });
+//   const data = await res.json();
+//   return data;
+// };
 
 async function ProductDetailPage({ params }: Props) {
-  const item = await fetchData(+params.productId);
+  // const item = await fetchData(+params.productId);
+
+  const item = DUMMY_ITEMS.find(item => item.id === +params.productId);
+  if (!item) throw new Error('Item not Found');
+
   return (
     <div className="px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="md:row-span-3 mr-4">
-        <img src={item.thumbnail.url} />
+        <img src={item.image} />
       </div>
       <div className="mt-0 pb-4 row-start-1 md:col-start-2">
         <h1 className="text-4xl">{item.name}</h1>
