@@ -6,7 +6,7 @@ type CartItemProps = {
   name: string;
   description: string;
   price: number;
-  thumbnail: { url: string };
+  image: string;
   size: string;
 };
 
@@ -16,7 +16,7 @@ export function CartItem(item: CartItemProps) {
       <section>
         <div className="grid grid-cols-3 gap-x-3 md:grid-cols-4 mx-2 py-5 border-b border-gray-300">
           <div className="flex justify-center">
-            <img className="w-2/3" src={item.thumbnail.url} />
+            <img className="w-2/3" src={item.image} />
           </div>
 
           <div className="">
